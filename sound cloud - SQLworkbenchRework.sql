@@ -1,39 +1,6 @@
--- MySQL Workbench Forward Engineering
+-
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
--- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `mydb` ;
-
--- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
-
--- -----------------------------------------------------
--- Table `mydb`.`User`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`User` ;
-
-CREATE TABLE IF NOT EXISTS `mydb`.`User` (
-  `id` INT NOT NULL,
-  `login` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = MyISAM;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`Likes`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Likes` ;
-
-CREATE TABLE IF NOT EXISTS `mydb`.`Likes` (
+CREATE TABLE IF NOT EXISTS `Likes` (
   `id` INT NOT NULL,
   `track_id` INT NOT NULL,
   `User_id` INT NOT NULL,
@@ -50,9 +17,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Comments`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Comments` ;
+DROP TABLE IF EXISTS `Comments` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Comments` (
+CREATE TABLE IF NOT EXISTS `Comments` (
   `id` INT NOT NULL,
   `commentscol` VARCHAR(365) NOT NULL,
   PRIMARY KEY (`id`))
@@ -62,9 +29,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Genre`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Genre` ;
+DROP TABLE IF EXISTS `Genre` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Genre` (
+CREATE TABLE IF NOT EXISTS `Genre` (
   `id` INT NOT NULL,
   `genre` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -74,9 +41,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Track`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Track` ;
+DROP TABLE IF EXISTS `Track` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Track` (
+CREATE TABLE IF NOT EXISTS `Track` (
   `id` INT NOT NULL,
   `tittle` VARCHAR(45) NOT NULL,
   `genre` VARCHAR(45) NOT NULL,
@@ -113,11 +80,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Followers`
+-- Table `Followers`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Followers` ;
+DROP TABLE IF EXISTS `Followers` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Followers` (
+CREATE TABLE IF NOT EXISTS `Followers` (
   `id` INT NOT NULL,
   `User_id` INT NOT NULL,
   PRIMARY KEY (`id`),
@@ -131,11 +98,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Playlist`
+-- Table `Playlist`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Playlist` ;
+DROP TABLE IF EXISTS `Playlist` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Playlist` (
+CREATE TABLE IF NOT EXISTS `Playlist` (
   `id` INT NOT NULL,
   `Likes_id` INT NOT NULL,
   `Track_id` INT NOT NULL,
@@ -163,11 +130,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Upload`
+-- Table `Upload`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Upload` ;
+DROP TABLE IF EXISTS `Upload` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Upload` (
+CREATE TABLE IF NOT EXISTS `Upload` (
   `id` INT NOT NULL,
   `User_id` INT NOT NULL,
   `Likes_id` INT NOT NULL,
@@ -195,11 +162,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Weekly`
+-- Table `Weekly`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Weekly` ;
+DROP TABLE IF EXISTS `Weekly` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Weekly` (
+CREATE TABLE IF NOT EXISTS `Weekly` (
   `id` INT NOT NULL,
   `User_id` INT NOT NULL,
   `Track_id` INT NOT NULL,
@@ -227,11 +194,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`recently`
+-- Table `recently`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`recently` ;
+DROP TABLE IF EXISTS `recently` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`recently` (
+CREATE TABLE IF NOT EXISTS `recently` (
   `id` INT NOT NULL,
   `User_id` INT NOT NULL,
   `Track_id` INT NOT NULL,
@@ -258,6 +225,4 @@ CREATE TABLE IF NOT EXISTS `mydb`.`recently` (
 ENGINE = InnoDB;
 
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
